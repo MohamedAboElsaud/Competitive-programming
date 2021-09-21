@@ -55,9 +55,10 @@ int main()
 {
     fast();
 
-    ll t = 0, n, l = 0, r = 0, d, mx = 0, res = 0, sum = 0,a1=0,a2=0, m, k;
+    ll t = 0, n, l = 0, r = 0, d, mx = 0, res = 1e9, sum = 0, a1 = 0, a2 = 0, m, k;
     string s;
     cin >> n;
+
     vector<ll>v(n + 5, 0);
     for (ll i = 0; i < n; i++)cin >> v[i];
     for (ll i = -1; i <= 1; i++) {
@@ -72,7 +73,9 @@ int main()
             if (k == n)res = min(res, mx);
         }
     }
-    cout << res < 1e9 ? res : -1;
+    cout <<( (res < 1e9) ? res : -1);
+
+      
 return 0;
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

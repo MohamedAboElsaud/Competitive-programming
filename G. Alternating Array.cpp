@@ -23,7 +23,7 @@
 |||                                  ╚════════╝      ╚════╝                                           |||
 */
 
-
+//link : https://codeforces.com/group/XGW5NIn8kq/contest/338700/problem/G
 #include <iostream>
 #include <cmath>
 #include <algorithm>
@@ -55,24 +55,28 @@ int main()
 {
     fast();
 
-    ll t = 0, n, l = 0, r = 0, d, mx = 0, res = 0, sum = 0,a1=0,a2=0, m, k;
+    ll t = 0, n, l = 0, r = 0, d, mx = 0, res = 1, sum = 0, a1 = 0, a2 = 0, m, k;
     string s;
     cin >> n;
-    vector<ll>v(n + 5, 0);
-    for (ll i = 0; i < n; i++)cin >> v[i];
-    for (ll i = -1; i <= 1; i++) {
-        for (ll j = -1; j <= 1; j++) {
-            d = v[1] + j - v[0] - i;
-            mx = abs(i);
-            for (k = 1; k < n; k++) {
-                sum = abs(v[k] - (v[0] + i + k * d));
-                if (sum > 1)break;
-                mx += sum;
-            }
-            if (k == n)res = min(res, mx);
-        }
+    vector<ll>a(n);  vector<ll>v(n);
+    for (ll i = 0; i < n; i++) {
+        cin >> a[i];
+        v[i] = a[i];
     }
-    cout << res < 1e9 ? res : -1;
+    a[0] = -a[0];
+    for (ll i = 0; i < n - 1; i++) {
+        if ((a[i] > 0 && a[i + 1] > 0) || (a[i] < 0 && a[i + 1] < 0)) {
+
+            a[i + 1] = -a[i + 1];
+            res++;
+        }
+            if ((v[i] > 0 && v[i + 1] > 0) || (v[i] < 0 && v[i + 1] < 0)) {
+                v[i + 1] = -v[i + 1];
+                mx++;
+            }
+        
+    }
+     cout<<min(res,mx); 
 return 0;
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

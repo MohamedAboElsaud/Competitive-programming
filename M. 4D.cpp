@@ -23,6 +23,7 @@
 |||                                  ╚════════╝      ╚════╝                                           |||
 */
 
+// link : https://codeforces.com/group/T3p02rhrmb/contest/338055/problem/M
 
 #include <iostream>
 #include <cmath>
@@ -50,29 +51,37 @@ void fast() {
     ios::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
 }
+struct vls {
+    string s;
+    int x, y, z, w, indx;
+};
+bool cmp(vls a, vls b) {
+    int aa=0, bb = 0;
+    for (int i = 0; i < a.s.size(); i++)aa += int(a.s[i]);
+    for (int i = 0; i < b.s.size(); i++)bb += int(b.s[i]);
+    return (aa + a.y + a.w < bb + b.y + b.w || (aa + a.y + a.w == bb + b.y + b.w && a.indx > b.indx));
 
+}
 int main()
 {
     fast();
 
-    ll t = 0, n, l = 0, r = 0, d, mx = 0, res = 0, sum = 0,a1=0,a2=0, m, k;
+    ll t = 0, n, l = 0, r = 0, d, mx = 0, res = 1, sum = 0, a1 = 0, a2 = 0, m, k,x,y,z,w,indx;
     string s;
     cin >> n;
-    vector<ll>v(n + 5, 0);
-    for (ll i = 0; i < n; i++)cin >> v[i];
-    for (ll i = -1; i <= 1; i++) {
-        for (ll j = -1; j <= 1; j++) {
-            d = v[1] + j - v[0] - i;
-            mx = abs(i);
-            for (k = 1; k < n; k++) {
-                sum = abs(v[k] - (v[0] + i + k * d));
-                if (sum > 1)break;
-                mx += sum;
-            }
-            if (k == n)res = min(res, mx);
-        }
+    vector<vls>a(n); 
+    for (ll i = 0; i < n; i++) {
+        cin >> a[i].s;
+        cin >> a[i].x >> a[i].y >> a[i].z >> a[i].w;
+        a[i].indx = i;
+        
     }
-    cout << res < 1e9 ? res : -1;
+    sort(a.begin(), a.end(), cmp);
+    for (ll i = 0; i < n; i++) {
+        cout << a[i].s << " " << a[i].x << " " << a[i].y << " " << a[i].z << " " << a[i].w << "\n";
+   }
+   
+   
 return 0;
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

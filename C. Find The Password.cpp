@@ -23,6 +23,7 @@
 |||                                  ╚════════╝      ╚════╝                                           |||
 */
 
+// link : https://codeforces.com/group/XGW5NIn8kq/contest/338700/problem/C
 
 #include <iostream>
 #include <cmath>
@@ -31,9 +32,6 @@
 #include <string>
 #include <stack>
 #include <vector>
-#include <queue>
-#include <deque>
-#include <set>
 #include <map>
 #include <iomanip>
 #include <fstream>
@@ -41,9 +39,7 @@
 #include <stdio.h>
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#define ll long long 
-#define ld long double
-
+#define ll long long int
 
 using namespace std;
 void fast() {
@@ -51,29 +47,41 @@ void fast() {
     cin.tie(0); cout.tie(0);
 }
 
+int cmp(int a, int b)
+{
+    return a > b;
+}
+const int maxn = 2e5 + 10;
+
+//ll a[1000005] = {0};
+map<ll, ll> all, fd;
+
+
+
 int main()
 {
     fast();
 
-    ll t = 0, n, l = 0, r = 0, d, mx = 0, res = 0, sum = 0,a1=0,a2=0, m, k;
-    string s;
-    cin >> n;
-    vector<ll>v(n + 5, 0);
-    for (ll i = 0; i < n; i++)cin >> v[i];
-    for (ll i = -1; i <= 1; i++) {
-        for (ll j = -1; j <= 1; j++) {
-            d = v[1] + j - v[0] - i;
-            mx = abs(i);
-            for (k = 1; k < n; k++) {
-                sum = abs(v[k] - (v[0] + i + k * d));
-                if (sum > 1)break;
-                mx += sum;
-            }
-            if (k == n)res = min(res, mx);
+    
+    
+    string s,ss=""; ll res = 0;
+    getline(cin,s);
+    ll n=s.find(":");
+    for (ll i = n; i < s.size();i++) {
+        if (isdigit(s[i])) {
+             ss+= s[i];
+
+        }
+        else {
+            res += atoll(ss.c_str());
+            ss = "";
         }
     }
-    cout << res < 1e9 ? res : -1;
-return 0;
+    cout << res+atoll(ss.c_str());
+    
+    
+    
+    return 0;
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
