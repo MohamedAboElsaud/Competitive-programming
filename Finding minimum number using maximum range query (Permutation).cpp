@@ -24,7 +24,6 @@
 |||                                  ╚════════╝      ╚════╝                                           |||
 */
 
-link : https://codeforces.com/group/u3Ii79X3NY/contest/270254/problem/N
 
 #include <iostream>
 #include <cmath>
@@ -46,6 +45,7 @@ link : https://codeforces.com/group/u3Ii79X3NY/contest/270254/problem/N
 #define ll long long int
 #define ld long double
 
+link : https://codeforces.com/group/u3Ii79X3NY/contest/270254/problem/L
 
 using namespace std;
 void fast() {
@@ -53,42 +53,41 @@ void fast() {
     cin.tie(0); cout.tie(0);
 }
 ll const N = 1000 + 7;
-ll a[N][N],t, i, n, m, k, l, r, x, y,xx,yy,my,mx,myy,mxx, res,j;
+
 int main()
 {
     fast();
-    cin >> t;
+
+
+      freopen("mex.in", "r", stdin);
+    ll t; cin >> t;
     while (t--) {
-        res = 0;
-        cin >> n >> m >> k;
-        for (i = 1; i <= 1005; i++)
-            for (j = 1; j <= 1005; j++)
-                a[i][j] = 0;
-
-        while (k--) {
-            cin >> x >> y >> xx >> yy;
-            mx = min(xx, x);
-            mxx = max(xx, x);
-            my = min(y, yy);
-            myy = max(y, yy);
-            a[mx][my]++;
-            a[mx][myy + 1]--;
-            a[mxx+1][my]--;
-            a[mxx+1][myy + 1]++;
-           /* a[mx][my]++;
-            a[mxx+1][myy+1]--;*/
+        ll n, a, b, l, r, res, md, i, ml, mr, q, mn; cin >> n >> q;
+        vector< ll> v(n + 5), vl(n + 5, 1e6), vr(n + 5, 1e6);
+        for (i = 1; i <= n; i++) {
+            cin >> v[i];
+            if (i > 1)vl[i] = min(v[i], vl[i - 1]);
+            else vl[i] = v[i];
         }
-        for (i = 1; i <= n; i++)
-            for (j = 1; j <= m; j++)
-                a[i][j] += a[i - 1][j] + a[i][j - 1]- a[i - 1][j - 1];
-   
+        vr[n] = v[n];
+        for (i = n - 1; i >= 1; i--) {
+            vr[i] = min(vr[i + 1], v[i]);
+        }
 
-    for (i = 1; i <= n; i++)
-        for (j = 1; j <= m; j++)
-            if(!a[i][j])
-            res ++;
+        //for (i = 1; i <= n; i++) {
+        //    cout << vr[i] << " ";
+        //}
+        //cout << "\n";
+        //for (i = 1; i <= n; i++) {
+        //    cout << vl[i] << " ";
+        //}
+        while (q--) {
+            cin >> l >> r;
+            mn = min(vl[l - 1], vr[r + 1]);
+            if (mn == 1e6)cout << n + 1 << "\n";
+            else cout << mn << "\n";
+        }
 
-    cout << res << "\n";
-}
+    }
     return 0;
 }
