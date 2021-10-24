@@ -46,6 +46,7 @@ link : https://codeforces.com/group/u3Ii79X3NY/contest/270254/problem/N
 #define ll long long int
 #define ld long double
 
+link : https://codeforces.com/group/u3Ii79X3NY/contest/270254/problem/N
 
 using namespace std;
 void fast() {
