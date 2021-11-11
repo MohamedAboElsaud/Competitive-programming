@@ -57,42 +57,26 @@ void fast() {
 int main()
 {
     fast();
-    deque<ll>q;
-    string s, ss;
-    while (cin >> s) {
-
-        bool ch = true;
-        deque<string>q;
-        ll i = 0;
-        while (i < s.size() && s[i] != '[' && s[i] != ']') {
-            ss += s[i]; i++;
-        }
-        q.push_back(ss);
-        ss = "";
-        while (i < s.size()) {
-
-            if (s[i] == '[') {
-                i++;
-                while (s[i] != '[' && s[i] != ']' && i < s.size()) {
-                    ss += s[i];
-                    i++;
-                }
-                q.push_front(ss); ss = "";
+    ll n, i=0, j=1, m, k;  char c;
+    stack<ll>st;
+    deque<char>d;
+    string s;
+    while (cin>>s)
+    {
+        d.clear(); k = 0;
+        for (i = 0; i < s.size(); i++) {
+            if (s[i] == '[')k = 0;
+            else if (s[i] == ']')k = d.size();
+            else {
+                auto indx = d.begin();
+                indx += k;
+                d.insert(indx,s[i]);
+                k++;
             }
-            else if (s[i] == ']') {
-                i++;
-                while (s[i] != '[' && s[i] != ']' && i < s.size()) {
-                    ss += s[i];
-                    i++;
-                }
-                q.push_back(ss); ss = "";
-            }
-
         }
-        for (ll i = 0; i < q.size(); i++) {
-            cout << q[i];
-        }
+        for (i = 0; i < d.size(); i++)cout << d[i];
         cout << "\n";
+      
 
     }
 
