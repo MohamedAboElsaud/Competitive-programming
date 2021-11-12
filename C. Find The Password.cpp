@@ -53,9 +53,8 @@ int cmp(int a, int b)
 }
 const int maxn = 2e5 + 10;
 
-//ll a[1000005] = {0};
-map<ll, ll> all, fd;
 
+map<ll, ll> all, fd;
 
 
 int main()
