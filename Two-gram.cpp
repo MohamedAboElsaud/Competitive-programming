@@ -24,6 +24,7 @@
 |||                                  ╚════════╝      ╚════╝                                           |||
 */
 
+//link : https://codeforces.com/group/u3Ii79X3NY/contest/272220/problem/D
 
 #include <iostream>
 #include <cmath>
