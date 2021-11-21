@@ -23,6 +23,7 @@
 |||                                  ╚════════╝      ╚════╝                                           |||
 */
 
+// link : https://codeforces.com/group/u3Ii79X3NY/contest/270796/problem/V
 
 #include <iostream>
 #include <cmath>
