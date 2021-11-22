@@ -58,7 +58,6 @@ int main()
     ll t = 0, n, l = 0, r = 0, d, mx = 0, res = 0, sum = 0, sum1=0,a1=0,a2=0, m, k;
     string s,ss="aeiouyAEIOUY";
     map<char, ll>mp;
-   // ll n = 3, e = 3, t = 1, i = 1;
   
     ld a=0, b=0;
 
