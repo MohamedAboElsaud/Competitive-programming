@@ -1,3 +1,4 @@
+//link:https://codeforces.com/group/u3Ii79X3NY/contest/272628/problem/I
 
 /*
 |||   ╔═══════════╗            ╔════╗            ╔═══════════╗    ╔═══════════╗    ╔══════════╗       |||
@@ -37,38 +38,39 @@
 #include <set>
 #include <map>
 #include <iomanip>
+#include <sstream>
 #include <fstream>
 #define _CRT_SECURE_NO_DEPRECATE
 #include <stdio.h>
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #define ll long long int
-#define ld long double
+#define ld long double;
 
 
 using namespace std;
+
 void fast() {
     ios::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
 }
 
-
 int main()
 {
     fast();
-    ll v, k, n, res = 0, l=0, r,md;
-    cin >> n >> k;
-     r = n;
-    while (l<r) {
+    ll n, k, i = 0, l = 1,r,md,res=0,v;
+    cin >> n >> k;r=1e10;
+    while (l <= r) {
         md=v = l + (r - l) / 2;
         res = 0;
-        while (v) {
+        while (v)
+        {
             res += v;
             v /= k;
         }
-        if (res<n)l = md+1;
-        else r = md ;
+        (res<n) ?l=md+1 :r=md-1 ;
     }
-    cout<<l;
+    cout << l;
     return 0;
 }
+
