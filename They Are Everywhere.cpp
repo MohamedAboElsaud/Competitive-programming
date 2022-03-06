@@ -61,23 +61,18 @@ int main()
 {
     fast();
 
-    ll l = 0, r = 0, n,k=0, res =100000, i;
+
+    ll l = 0, r = 0,n,res=100000,k=0;
     set<char>st;
     map<char, ll>mp;
     string s; cin >> n >> s;
-    for (auto&c : s)st.insert(c);
-    while (l <= r) {
-        mp[s[r]]++;
-        if (mp[s[r]] == 1)
-            k++;
-        if(k == st.size()){
-            while (mp[s[l]] > 1) {
-                mp[s[l++]]--;
-            }
-            if (res > r - l + 1)res = r - l + 1;
-        }
-        if (++r > n)break;;
-
+    for (auto& c : s)st.insert(c);
+    while (l <= r && r < n) {
+        if (!mp[s[r]]++)k++;
+        if (k == st.size()) {
+            while (mp[s[l]] > 1)mp[s[l++]]--;
+            res = min(res, r - l + 1);
+        }r++;
     }
     cout << res;
     return 0;
