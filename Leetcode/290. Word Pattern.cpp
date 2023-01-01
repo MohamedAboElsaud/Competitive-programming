@@ -1,3 +1,4 @@
+// not good explain ,maybe there is wronge in this problem ...!
 class Solution {
 public:
 bool wordPattern(string pattern, string s) {
