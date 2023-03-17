@@ -1,7 +1,7 @@
 /*hint
 We want to check can any value duplicate more than once or not ,there are to solution 
-1. using String + Sorting.      complexity O(NlogN)
-2. using String + Hash Table.   complexity O(N)
+1. using Array + Sorting.      complexity O(NlogN)
+2. using Array + Hash Table.   complexity O(N)
 So the best solution is Num 2
 */
 
